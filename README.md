@@ -36,24 +36,24 @@ A full-stack notes application built with **Node.js**, **Express**, **MongoDB**,
 
 ---
 
-## 📦 Features
+## Features
 
-- 🔐 **User Authentication**
+- **User Authentication**
   - Register  
   - Login  
   - JWT stored in localStorage  
   - Automatic session restoration  
 
-- 📝 **Notes**
+- **Notes**
   - Create, view, update, delete  
   - Notes tied to authenticated user  
   - Secure protected routing  
 
-- 🚫 **Rate Limiting**
+- **Rate Limiting**
   - Limits excessive requests  
   - Protects login from brute-force attacks  
 
-- 🎨 **Responsive UI**
+- **Responsive UI**
   - Tailwind + DaisyUI styling  
   - Clean and modern layout  
 
@@ -63,23 +63,56 @@ A full-stack notes application built with **Node.js**, **Express**, **MongoDB**,
 
 root
 ├── backend
-│   ├── controllers
-│   ├── middleware
-│   ├── models
-│   ├── routes
-│   ├── config
-│   ├── server.js
-│   └── package.json
+│ ├── controllers
+│ ├── middleware
+│ ├── models
+│ ├── routes
+│ ├── config
+│ ├── server.js
+│ └── package.json
 ├── frontend
-│   ├── public
-│   ├── src
-│   │   ├── components
-│   │   ├── context
-│   │   ├── lib
-│   │   ├── pages
-│   │   ├── App.jsx
-│   │   └── index.css
-│   └── package.json
+│ ├── public
+│ ├── src
+│ │ ├── components
+│ │ ├── context
+│ │ ├── lib
+│ │ ├── pages
+│ │ ├── App.jsx
+│ │ └── index.css
+│ └── package.json
 └── README.md
+
+---
+
+## 📸 Screenshots
+
+### Login Page  
+A secure login interface using JWT authentication.
+
+![Login Page](frontend/public/login.png)
+
+---
+
+### Register Page  
+New users can create an account; errors and validation are handled cleanly.
+
+![Register Page](frontend/public/register.png)
+
+---
+
+### Home Dashboard  
+Displays all user notes after authentication, with rate-limit status when triggered.
+
+![Home Page](frontend/public/home.png)
+
+---
+
+### Edit / Update Note  
+Users can update or delete notes with a clean, responsive UI.
+
+![Edit Note Page](frontend/public/edit-note.png)
+
+---
+
 
 
