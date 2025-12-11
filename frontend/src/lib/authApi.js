@@ -16,7 +16,7 @@ authApi.interceptors.response.use(
     const backendMessage = error?.response?.data?.error;
     error.message = backendMessage || "An unexpected error occurred";
     return Promise.reject(error);
-  }
+  } 
 );
 
 export default authApi;
