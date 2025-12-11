@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  a {
+    @apply text-primary hover:text-primary-content transition-colors;
+  }
+
+  button {
+    @apply transition-colors;
+  }
+}

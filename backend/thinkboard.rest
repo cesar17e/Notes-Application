@@ -1,0 +1,62 @@
+## Using the REST Client extension to test our code
+
+## AUTH TESTS 
+
+### Register a new user
+POST http://localhost:5117/auth/register
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "email": "testuser@example.com",
+  "password": "123456"
+}
+
+### Login with an existing user
+POST http://localhost:5117/auth/login
+Content-Type: application/json
+
+{
+  "email": "testuser@example.com",
+  "password": "123456"
+}
+
+# After login, copy the token from the response and replace <YOUR_JWT_HERE>
+# Example: Authorization: Bearer <YOUR_JWT_HERE>
+
+## NOTE TESTS CRUD
+
+### Create a new note
+POST http://localhost:5117/api/notes
+Content-Type: application/json
+Authorization: Bearer <YOUR_JWT_HERE>
+
+{
+  "title": "My second note",
+  "content": "This is a test note"
+}
+
+### Get all notes for the user
+GET http://localhost:5117/api/notes
+Authorization: Bearer <YOUR_JWT_HERE>
+
+### Get a single note by ID
+# Replace <NOTE_ID> with the _id from the "Get all notes" response
+GET http://localhost:5117/api/notes/<NOTE_ID>
+Authorization: Bearer <YOUR_JWT_HERE>
+
+### Update a note
+# Replace <NOTE_ID> with the _id from the "Get all notes" response
+PUT http://localhost:5117/api/notes/<NOTE_ID>
+Content-Type: application/json
+Authorization: Bearer <YOUR_JWT_HERE>
+
+{
+  "title": "Updated note title",
+  "content": "Updated content"
+}
+
+### Delete a note
+# Replace <NOTE_ID> with the _id from the "Get all notes" response
+DELETE http://localhost:5117/api/notes/<NOTE_ID>
+Authorization: Bearer <YOUR_JWT_HERE>
