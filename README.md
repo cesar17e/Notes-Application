@@ -4,7 +4,7 @@ A full-stack notes application built with **Node.js**, **Express**, **MongoDB**,
 
 ✔ User authentication (JWT)  
 ✔ Protected API routes  
-✔ Create / Read / Update / Delete notes  
+✔ (CRUD) Create / Read / Update / Delete notes  
 ✔ Rate limiting (Upstash + Redis)  
 ✔ Responsive UI  
 ✔ Deployed on Render  
