@@ -53,16 +53,33 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-base-200 flex items-center justify-center px-4">
-      <div className="w-full max-w-md bg-base-100 p-10 rounded-2xl shadow-2xl border border-base-300">
-        <h1 className="text-3xl font-bold text-center mb-8 text-base-content">
-          Create Account
+    <div className="auth-shell justify-center lg:justify-between">
+      <div className="hidden max-w-xl lg:block lg:pr-12">
+        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary/70">
+          ThinkBoard
+        </p>
+        <h1 className="mt-4 text-5xl font-semibold leading-tight text-white">
+          Create a notes workspace that fits every screen.
         </h1>
+        <p className="mt-5 max-w-lg text-base leading-7 text-base-content/70">
+          Register once and your notes flow through the same fullstack app, whether you are on a phone, tablet, or desktop browser.
+        </p>
+      </div>
 
-        {/* FORM (Enter now works normally) */}
+      <div className="auth-card">
+        <div className="mb-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary/70">
+            Get Started
+          </p>
+          <h1 className="mt-3 text-3xl font-bold tracking-tight text-white">
+            Create Account
+          </h1>
+          <p className="mt-2 text-sm leading-6 text-base-content/70">
+            Set up your profile and start writing.
+          </p>
+        </div>
+
         <form onSubmit={handleRegister} className="space-y-5">
-          
-          {/* Username */}
           <div>
             <label className="label">
               <span className="label-text text-base-content/80">Username</span>
@@ -70,13 +87,12 @@ const RegisterPage = () => {
             <input
               type="text"
               placeholder="Username"
-              className="input input-bordered w-full bg-base-200 focus:border-primary"
+              className="input input-bordered h-12 w-full rounded-2xl bg-base-200/70 px-4 focus:border-primary"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
           </div>
 
-          {/* Email */}
           <div>
             <label className="label">
               <span className="label-text text-base-content/80">Email</span>
@@ -84,13 +100,12 @@ const RegisterPage = () => {
             <input
               type="email"
               placeholder="you@example.com"
-              className="input input-bordered w-full bg-base-200 focus:border-primary"
+              className="input input-bordered h-12 w-full rounded-2xl bg-base-200/70 px-4 focus:border-primary"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
-          {/* Password */}
           <div>
             <label className="label">
               <span className="label-text text-base-content/80">Password</span>
@@ -98,25 +113,24 @@ const RegisterPage = () => {
             <input
               type="password"
               placeholder="********"
-              className="input input-bordered w-full bg-base-200 focus:border-primary"
+              className="input input-bordered h-12 w-full rounded-2xl bg-base-200/70 px-4 focus:border-primary"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
 
-          {/* Submit */}
           <button
             type="submit"
             disabled={loading}
-            className="btn btn-primary w-full text-white shadow-lg"
+            className="btn btn-primary h-12 w-full rounded-2xl text-white shadow-lg"
           >
             {loading ? "Creating..." : "Register"}
           </button>
         </form>
 
-        <p className="text-center mt-6 text-base-content/70">
+        <p className="mt-6 text-center text-sm text-base-content/70">
           Already have an account?
-          <Link to="/login" className="text-primary hover:underline ml-1">
+          <Link to="/login" className="ml-1 font-medium text-primary hover:underline">
             Login here
           </Link>
         </p>

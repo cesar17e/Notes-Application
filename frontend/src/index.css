@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  @apply m-0 min-h-screen bg-base-100 text-base-content antialiased;
+  overflow-x: hidden;
+}
+
+input,
+textarea,
+select {
+  font-size: 16px;
+}
+
 @layer base {
   a {
     @apply text-primary hover:text-primary-content transition-colors;
@@ -9,5 +26,43 @@
 
   button {
     @apply transition-colors;
+  }
+}
+
+@layer components {
+  .app-shell {
+    @apply relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.12),_transparent_38%),linear-gradient(180deg,#0f1814_0%,#111827_45%,#0b1120_100%)];
+  }
+
+  .app-shell__aurora {
+    @apply pointer-events-none absolute inset-x-0 z-0 blur-3xl;
+  }
+
+  .app-shell__aurora--top {
+    @apply -top-32 mx-auto h-64 w-[85vw] max-w-5xl rounded-full bg-emerald-400/15;
+  }
+
+  .app-shell__aurora--bottom {
+    @apply bottom-0 left-1/2 h-72 w-[90vw] max-w-6xl -translate-x-1/2 rounded-full bg-cyan-400/10;
+  }
+
+  .page-shell {
+    @apply relative z-10 mx-auto w-full max-w-6xl px-4 py-5 sm:px-6 sm:py-8 lg:px-8;
+  }
+
+  .surface-card {
+    @apply rounded-3xl border border-white/10 bg-base-100/90 shadow-2xl shadow-black/20 backdrop-blur;
+  }
+
+  .auth-shell {
+    @apply relative z-10 flex min-h-screen items-center px-4 py-8 sm:px-6;
+  }
+
+  .auth-card {
+    @apply surface-card w-full max-w-md p-6 sm:p-8;
+  }
+
+  .section-heading {
+    @apply text-2xl font-semibold tracking-tight text-white sm:text-3xl;
   }
 }

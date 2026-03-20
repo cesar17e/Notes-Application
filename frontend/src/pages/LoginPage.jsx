@@ -39,18 +39,33 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-base-200 flex items-center justify-center px-4">
-      <div className="w-full max-w-md bg-base-100 p-10 rounded-2xl shadow-2xl border border-base-300">
-        <h1 className="text-3xl font-bold text-center mb-8 text-base-content">
-          Login
+    <div className="auth-shell justify-center lg:justify-between">
+      <div className="hidden max-w-xl lg:block lg:pr-12">
+        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary/70">
+          ThinkBoard
+        </p>
+        <h1 className="mt-4 text-5xl font-semibold leading-tight text-white">
+          Notes that stay usable on mobile and desktop.
         </h1>
+        <p className="mt-5 max-w-lg text-base leading-7 text-base-content/70">
+          Sign in to review your latest ideas, update notes quickly, and keep the same workflow across small and large screens.
+        </p>
+      </div>
 
-        {/* Prevent Enter-auto submit */}
-        <form
-          onSubmit={handleLogin}
-          className="space-y-5"
-        >
-          {/* Email */}
+      <div className="auth-card">
+        <div className="mb-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary/70">
+            Welcome Back
+          </p>
+          <h1 className="mt-3 text-3xl font-bold tracking-tight text-white">
+            Login
+          </h1>
+          <p className="mt-2 text-sm leading-6 text-base-content/70">
+            Access your notes from any device.
+          </p>
+        </div>
+
+        <form onSubmit={handleLogin} className="space-y-5">
           <div>
             <label className="label">
               <span className="label-text text-base-content/80">Email</span>
@@ -59,13 +74,12 @@ const LoginPage = () => {
               type="email"
               placeholder="you@example.com"
               autoComplete="off"
-              className="input input-bordered w-full bg-base-200 focus:border-primary"
+              className="input input-bordered h-12 w-full rounded-2xl bg-base-200/70 px-4 focus:border-primary"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
-          {/* Password */}
           <div>
             <label className="label">
               <span className="label-text text-base-content/80">Password</span>
@@ -74,25 +88,24 @@ const LoginPage = () => {
               type="password"
               placeholder="********"
               autoComplete="off"
-              className="input input-bordered w-full bg-base-200 focus:border-primary"
+              className="input input-bordered h-12 w-full rounded-2xl bg-base-200/70 px-4 focus:border-primary"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
 
-          {/* Login Button */}
           <button
             type="submit"
             disabled={loading}
-            className="btn btn-primary w-full text-white shadow-lg"
+            className="btn btn-primary h-12 w-full rounded-2xl text-white shadow-lg"
           >
             {loading ? "Logging in..." : "Login"}
           </button>
         </form>
 
-        <p className="text-center mt-6 text-base-content/70">
+        <p className="mt-6 text-center text-sm text-base-content/70">
           Don’t have an account?
-          <Link to="/register" className="text-primary hover:underline ml-1">
+          <Link to="/register" className="ml-1 font-medium text-primary hover:underline">
             Register here
           </Link>
         </p>

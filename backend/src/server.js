@@ -25,6 +25,8 @@ if(process.env.NODE_ENV !== "production"){
 const PORT = process.env.PORT || 5001; 
 
 // Auth routes for login
+//We use router 
+//The app.use("/auth", authRoutes) tells Express: “for any request starting with /auth, delegate handling to this router”.
 app.use("/auth", authRoutes);
 
 // Notes routes (protected json tokens)

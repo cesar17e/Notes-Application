@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/cesar17e/Notes-Application/issues"
   },
-  "homepage": "https://github.com/cesar17e/Notes-Application#readme"
+  "homepage": "https://github.com/cesar17e/Notes-Application#readme",
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
 }

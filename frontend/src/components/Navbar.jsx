@@ -12,46 +12,41 @@ const Navbar = () => {
   };
 
   return (
-    <header className="bg-base-300 border-b border-base-content/10 backdrop-blur-sm">
-      <div className="mx-auto max-w-6xl p-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <h1 className="text-3xl font-bold font-mono tracking-tight text-primary">
-            <Link to="/">ThinkBoard</Link>
-          </h1>
+    <header className="sticky top-0 z-20 border-b border-white/10 bg-slate-950/70 backdrop-blur-xl">
+      <div className="page-shell py-4 sm:py-5">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="min-w-0">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary/70">
+              Notes Workspace
+            </p>
+            <h1 className="truncate text-2xl font-bold tracking-tight text-white sm:text-3xl">
+              <Link to="/" className="hover:text-primary">
+                ThinkBoard
+              </Link>
+            </h1>
+            {user ? (
+              <p className="mt-1 truncate text-sm text-base-content/70">
+                Signed in as {user.username}
+              </p>
+            ) : null}
+          </div>
 
           {user && (
-            <div className="flex items-center gap-4">
-
-              {/* New Note Button */}
+            <div className="grid grid-cols-1 gap-3 sm:flex sm:items-center">
               <Link
                 to="/create"
-                className="
-                  btn btn-primary rounded-lg 
-                  shadow-md 
-                  hover:shadow-lg hover:bg-primary-focus hover:text-white 
-                  transition-all duration-200
-                  flex items-center gap-2
-                "
+                className="btn btn-primary h-12 rounded-2xl px-5 text-sm font-semibold sm:h-11"
               >
                 <PlusIcon className="w-5 h-5" />
                 <span>New Note</span>
               </Link>
-
-              {/* Logout Button */}
               <button
                 onClick={handleLogout}
-                className="
-                  btn btn-outline btn-error rounded-lg 
-                  hover:bg-error hover:text-white hover:border-error 
-                  transition-all duration-200
-                  flex items-center gap-2
-                "
+                className="btn btn-outline btn-error h-12 rounded-2xl px-5 text-sm font-semibold sm:h-11"
               >
                 <LogOutIcon className="w-4 h-4" />
                 Logout
               </button>
-
             </div>
           )}
         </div>

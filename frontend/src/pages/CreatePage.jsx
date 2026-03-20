@@ -1,7 +1,7 @@
 import { ArrowLeftIcon } from "lucide-react";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router-dom";
 import api from "../lib/axios";
 
 const CreatePage = () => {
@@ -43,50 +43,62 @@ const CreatePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-base-200">
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-2xl mx-auto">
-          <Link to={"/"} className="btn btn-ghost mb-6">
+    <div className="min-h-screen">
+      <div className="page-shell">
+        <div className="mx-auto max-w-3xl">
+          <Link to={"/"} className="btn btn-ghost mb-4 h-11 rounded-2xl px-2 text-sm sm:mb-6">
             <ArrowLeftIcon className="size-5" />
             Back to Notes
           </Link>
 
-          <div className="card bg-base-100">
-            <div className="card-body">
-              <h2 className="card-title text-2xl mb-4">Create New Note</h2>
-              <form onSubmit={handleSubmit}>
-                <div className="form-control mb-4">
+          <div className="surface-card p-5 sm:p-8">
+            <div className="mb-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary/70">
+                New Note
+              </p>
+              <h2 className="mt-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+                Create something worth revisiting.
+              </h2>
+              <p className="mt-2 text-sm leading-6 text-base-content/70 sm:text-base">
+                Use a concise title and enough detail so the note is useful when you come back on desktop or mobile.
+              </p>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="form-control">
                   <label className="label">
                     <span className="label-text">Title</span>
                   </label>
                   <input
                     type="text"
                     placeholder="Note Title"
-                    className="input input-bordered"
+                    className="input input-bordered h-12 rounded-2xl bg-base-200/70 px-4"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                   />
                 </div>
 
-                <div className="form-control mb-4">
+                <div className="form-control">
                   <label className="label">
                     <span className="label-text">Content</span>
                   </label>
                   <textarea
                     placeholder="Write your note here..."
-                    className="textarea textarea-bordered h-32"
+                    className="textarea textarea-bordered h-48 rounded-2xl bg-base-200/70 px-4 py-3 sm:h-60"
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
                   />
                 </div>
 
-                <div className="card-actions justify-end">
-                  <button type="submit" className="btn btn-primary" disabled={loading}>
+                <div className="flex flex-col-reverse gap-3 pt-2 sm:flex-row sm:justify-end">
+                  <Link to="/" className="btn btn-ghost h-12 rounded-2xl px-5">
+                    Cancel
+                  </Link>
+                  <button type="submit" className="btn btn-primary h-12 rounded-2xl px-6" disabled={loading}>
                     {loading ? "Creating..." : "Create Note"}
                   </button>
                 </div>
               </form>
-            </div>
           </div>
         </div>
       </div>

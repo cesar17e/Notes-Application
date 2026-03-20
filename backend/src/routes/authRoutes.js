@@ -5,6 +5,9 @@ import authMiddleware from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
+//How router works
+//The app.use("/auth", authRoutes) tells Express: “for any request starting with /auth, delegate handling to this router”.
+
 // Protected route: get logged-in user
 router.get("/me", authMiddleware, getCurrentUser);
 

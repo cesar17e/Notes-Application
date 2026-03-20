@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 
-
 //Create the schema, where we have requried fields and optional fields
 //new mongoose.Schema(definitionObject, optionsObject)
 //It will refer to my users model
