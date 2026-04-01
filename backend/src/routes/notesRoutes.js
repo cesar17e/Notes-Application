@@ -1,15 +1,15 @@
-import express, { Router } from "express"
+import express from "express"
 import { getAllNotes, createNote, updateNote, deleteNote, getNoteById} from "../controllers/notesController.js";
-import rateLimiter from "../middleware/rateLimiter.js";
+import { noteReadLimiter, noteWriteLimiter } from "../middleware/rateLimiter.js";
 
 const router = express.Router();
 
 //Get notes
-router.get("/", getAllNotes);
-router.get("/:id", getNoteById);
+router.get("/", noteReadLimiter, getAllNotes);
+router.get("/:id", noteReadLimiter, getNoteById);
 
 //Create note (rate limited)
-router.post("/", rateLimiter, createNote);
+router.post("/", noteWriteLimiter, createNote);
 
 /*
 Below uses an id param like 
@@ -17,12 +17,9 @@ Example http://localhost:<port>/api/notes${id}
 */
 
 //To update a note
-router.put("/:id", updateNote);
+router.put("/:id", noteWriteLimiter, updateNote);
 
 //Delete a node     
-router.delete("/:id", deleteNote);
+router.delete("/:id", noteWriteLimiter, deleteNote);
 
 export default router;
- 
-
-
